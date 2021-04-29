@@ -1,10 +1,13 @@
-package jihun.bang.studycontact
+package jihun.bang.studycontact.model
 
-import org.springframework.data.annotation.Id
+import javax.persistence.Entity
 import javax.persistence.GeneratedValue
+import javax.persistence.Id
 
+@Entity
 data class ContactModel(
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     val id: Int = 0,
     val name: String = "",
     val mail: String = ""
