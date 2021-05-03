@@ -9,5 +9,4 @@ class StudyContactApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }

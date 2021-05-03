@@ -1,0 +1,17 @@
+### 모든 연락처 조회
+GET http://localhost:8080/contacts/
+
+### 연락처 추가
+POST http://localhost:8080/contact
+Content-Type: application/json
+
+< ./add.json
+
+### 연락처 업데이트
+PUT http://localhost:8080/contact/11
+Content-Type: application/json
+
+< ./add.json
+
+### 연락처 삭제
+DELETE http://localhost:8080/contact/14

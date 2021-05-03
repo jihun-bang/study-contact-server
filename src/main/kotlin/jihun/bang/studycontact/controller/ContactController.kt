@@ -1,6 +1,6 @@
 package jihun.bang.studycontact.controller
 
-import jihun.bang.studycontact.model.ContactModel
+import jihun.bang.studycontact.model.Contact
 import jihun.bang.studycontact.service.ContactService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
@@ -27,7 +27,7 @@ class ContactController {
     }
 
     @PostMapping("/contact")
-    private fun addContact(@RequestBody model: ContactModel): ResponseEntity<Any> {
+    private fun addContact(@RequestBody model: Contact): ResponseEntity<Any> {
         return when (contactService.addContact(model)) {
             true -> ResponseEntity.ok().body("model=$model, Add Success")
             false -> ResponseEntity.ok().body("model=$model, Add Fail")
@@ -35,8 +35,8 @@ class ContactController {
     }
 
     @PutMapping("/contact/{id}")
-    private fun updateContact(@PathVariable id: Int, @RequestBody model: ContactModel): ResponseEntity<Any> {
-        return when (contactService.updateContact(id, model)) {
+    private fun updateContact(@PathVariable id: Int, @RequestBody model: Contact): ResponseEntity<Any> {
+        return when (contactService.updateContact(id, Contact(id = id, name = model.name, mail = model.mail))) {
             true -> ResponseEntity.ok().body("id=$id, Update Success")
             false -> ResponseEntity.ok().body("id=$id, Update Fail")
         }
